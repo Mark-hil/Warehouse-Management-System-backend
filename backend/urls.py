@@ -20,7 +20,7 @@ from rest_framework.authtoken import views
 from rest_framework.decorators import permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.routers import DefaultRouter
-from inventory_management.views import CategoryViewSet, ItemViewSet, WarehouseViewSet, InventoryViewSet, InventoryAuditViewSet
+from inventory_management.views import CategoryViewSet, ItemViewSet, WarehouseViewSet, InventoryViewSet, InventoryAuditViewSet, DistributionViewSet
 from user_accounts.views import UserViewSet, PermissionViewSet, NotificationViewSet
 from sales_management.views import CustomerViewSet, SaleViewSet, PaymentViewSet, PriceHistoryViewSet
 
@@ -30,6 +30,7 @@ router.register(r'inventory/items', ItemViewSet)
 router.register(r'inventory/warehouses', WarehouseViewSet)
 router.register(r'inventory/inventory', InventoryViewSet)
 router.register(r'inventory/audit', InventoryAuditViewSet)
+router.register(r'inventory/distributions', DistributionViewSet)
 router.register(r'users', UserViewSet)
 router.register(r'permissions', PermissionViewSet)
 router.register(r'notifications', NotificationViewSet)
