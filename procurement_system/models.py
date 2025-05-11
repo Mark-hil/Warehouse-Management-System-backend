@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from user_accounts.models import User
 from inventory_management.models import Item, Warehouse
 
@@ -8,7 +9,14 @@ class Supplier(models.Model):
     contact_name = models.CharField(max_length=255)
     phone = models.CharField(max_length=50)
     email = models.EmailField()
-    address = models.TextField(blank=True, null=True)
+    address = models.CharField(max_length=255, default='')
+    city = models.CharField(max_length=100, default='')
+    state = models.CharField(max_length=100, default='')
+    zip_code = models.CharField(max_length=20, default='')
+    country = models.CharField(max_length=100, default='')
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(default=timezone.now)
 
     class Meta:
         db_table = 'suppliers'
