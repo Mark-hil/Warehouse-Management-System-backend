@@ -46,6 +46,7 @@ class Procurement(models.Model):
     procurement_id = models.AutoField(primary_key=True)
     request_date = models.DateField()
     required_by = models.DateField()
+    description = models.TextField(blank=True, null=True)
     requested_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='procurement_requested_by')
     approved_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='procurement_approved_by')
     status = models.CharField(max_length=100)
@@ -55,7 +56,7 @@ class Procurement(models.Model):
 
 class ProcurementItem(models.Model):
     procurement_item_id = models.AutoField(primary_key=True)
-    procurement = models.ForeignKey(Procurement, on_delete=models.CASCADE, null=True)
+    procurement = models.ForeignKey(Procurement, on_delete=models.CASCADE, related_name='items')
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     requested_quantity = models.IntegerField()
 

@@ -6,7 +6,7 @@ router = DefaultRouter()
 router.register(r'suppliers', views.SupplierViewSet)
 router.register(r'purchases', views.PurchaseViewSet)
 router.register(r'purchase-items', views.PurchaseItemViewSet)
-router.register(r'procurement', views.ProcurementViewSet)
+router.register(r'procurement', views.ProcurementViewSet, basename='procurement')
 router.register(r'procurement-items', views.ProcurementItemViewSet)
 
 urlpatterns = [
